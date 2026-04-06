@@ -104,7 +104,35 @@ export const StaticRouterMap = [{
       component: () => import('@/views/information/socialInsurance/index'),
       name: 'SocialInsurance',
       meta: {
-        title: '社保费'
+        title: '社保费-职工'
+      }
+    },{
+      path: 'socialInsuranceLD',
+      component: () => import('@/views/information/socialInsuranceLD/index'),
+      name: 'SocialInsuranceLD',
+      meta: {
+        title: '社保费-劳务派遣'
+      }
+    },{
+      path: 'providentFund',
+      component: () => import('@/views/information/providentFund/index'),
+      name: 'ProvidentFund',
+      meta: {
+        title: '公积金-职工'
+      }
+    },{
+      path: 'providentFundLD',
+      component: () => import('@/views/information/providentFundLD/index'),
+      name: 'ProvidentFundLD',
+      meta: {
+        title: '公积金-劳务派遣'
+      }
+    },{
+      path: 'enterpriseAnnuity',
+      component: () => import('@/views/information/enterpriseAnnuity/index'),
+      name: 'EnterpriseAnnuity',
+      meta: {
+        title: '企业年金'
       }
     }
   ]
@@ -117,35 +145,64 @@ export const StaticRouterMap = [{
     icon: 'component'
   },
   children: [{
-    path: 'unionDues',
-    component: () => import('@/views/reportForm/unionDues/index'),
-    name: 'UnionDues',
+    path: 'projectEmployment',
+    component: () => import('@/views/reportForm/projectEmployment/index'),
+    name: 'ProjectEmployment',
     meta: {
-      title: '工会费报表'
+      title: '项目用工报表'
     }
   },{
-    path: 'individualIncomeTax',
-    component: () => import('@/views/reportForm/individualIncomeTax/index'),
-    name: 'IndividualIncomeTax',
+    path: 'laborDispatch',
+    component: () => import('@/views/reportForm/laborDispatch/index'),
+    name: 'LaborDispatch',
     meta: {
-      title: '个税报表'
+      title: '劳务派遣报表'
+    }
+  },{
+    path: 'outsourcingServices',
+    component: () => import('@/views/reportForm/outsourcingServices/index'),
+    name: 'OutsourcingServices',
+    meta: {
+      title: '外包服务报表'
+    }
+  },{
+    path: 'personnelStatus',
+    component: () => import('@/views/reportForm/personnelStatus/index'),
+    name: 'PersonnelStatus',
+    meta: {
+      title: '人员情况报表'
     }
   }
-  /*,{
-    path: 'housingProvidentFund',
-    component: () => import('@/views/reportForm/housingProvidentFund/index'),
-    name: 'HousingProvidentFund',
-    meta: {
-      title: '住房公积金报表'
+    /*,{
+      path: 'unionDues',
+      component: () => import('@/views/reportForm/unionDues/index'),
+      name: 'UnionDues',
+      meta: {
+        title: '工会费报表'
+      }
+    },{
+      path: 'individualIncomeTax',
+      component: () => import('@/views/reportForm/individualIncomeTax/index'),
+      name: 'IndividualIncomeTax',
+      meta: {
+        title: '个税报表'
+      }
     }
-  },{
-    path: 'annuity',
-    component: () => import('@/views/reportForm/annuity/index'),
-    name: 'Annuity',
-    meta: {
-      title: '年金报表'
-    }
-  }*/
+    ,{
+      path: 'housingProvidentFund',
+      component: () => import('@/views/reportForm/housingProvidentFund/index'),
+      name: 'HousingProvidentFund',
+      meta: {
+        title: '住房公积金报表'
+      }
+    },{
+      path: 'annuity',
+      component: () => import('@/views/reportForm/annuity/index'),
+      name: 'Annuity',
+      meta: {
+        title: '年金报表'
+      }
+    }*/
   ]
 }
 ]

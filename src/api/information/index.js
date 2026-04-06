@@ -15,7 +15,8 @@ export function getLaborList(params, query) {
     method: 'POST',
     data: query
   })
-}// 社保费-获取列表
+}
+// 社保费-获取列表
 export function getIssuranceList(params, query) {
   const url = '/issurance/issuranceList/' + params.pageNum + '/' + params.pageSize
   return request({
@@ -28,7 +29,143 @@ export function getIssuranceList(params, query) {
     data: query
   })
 }
-
+// 社保费-删除
+export function deleteIssurance(params) {
+  return request({
+    url: '/issurance/delete',
+    headers: {
+      'authorization': getToken('urcrx'),
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    data: params
+  })
+}
+// 社保费-劳务派遣-获取列表
+export function getIssuranceDispatchList(params, query) {
+  const url = '/issurance/issuranceDispatchList/' + params.pageNum + '/' + params.pageSize
+  return request({
+    url: url,
+    headers: {
+      'authorization': getToken('urcrx'),
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    data: query
+  })
+}
+// 社保费-劳务派遣-删除
+export function deleteDispatch(params) {
+  return request({
+    url: '/issurance/deleteDispatch',
+    headers: {
+      'authorization': getToken('urcrx'),
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    data: params
+  })
+}
+// 公职金-职工-获取列表
+export function getPfList(params, query) {
+  const url = '/pf/pfList/' + params.pageNum + '/' + params.pageSize
+  return request({
+    url: url,
+    headers: {
+      'authorization': getToken('urcrx'),
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    data: query
+  })
+}
+// 公职金-职工-删除
+export function deletePF(params) {
+  return request({
+    url: '/pf/delete',
+    headers: {
+      'authorization': getToken('urcrx'),
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    data: params
+  })
+}
+// 公职金-劳务派遣-获取列表
+export function getPfDispatchList(params, query) {
+  const url = '/pf/pfDispatchList/' + params.pageNum + '/' + params.pageSize
+  return request({
+    url: url,
+    headers: {
+      'authorization': getToken('urcrx'),
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    data: query
+  })
+}
+// 公职金-劳务派遣-删除
+export function deletePFDispatch(params) {
+  return request({
+    url: '/pf/deletePFDispatch',
+    headers: {
+      'authorization': getToken('urcrx'),
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    data: params
+  })
+}
+// 企业年金-获取列表
+export function getCpIssuranceList(params, query) {
+  const url = '/cp/issuranceList/' + params.pageNum + '/' + params.pageSize
+  return request({
+    url: url,
+    headers: {
+      'authorization': getToken('urcrx'),
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    data: query
+  })
+}
+// 企业年金-删除
+export function deleteCp(params) {
+  return request({
+    url: '/cp/delete',
+    headers: {
+      'authorization': getToken('urcrx'),
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    data: params
+  })
+}
+// 工会费明细-获取列表
+export function getUnionDuesList(params, query) {
+  const url = '/ud/unionDuesList/' + params.pageNum + '/' + params.pageSize
+  return request({
+    url: url,
+    headers: {
+      'authorization': getToken('urcrx'),
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    data: query
+  })
+}
+// 工会费明细-删除
+export function deleteUD(params) {
+  return request({
+    url: '/ud/delete',
+    headers: {
+      'authorization': getToken('urcrx'),
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    data: params
+  })
+}
 // 打包管理-新增
 export function addPackage(params) {
   return request({
@@ -163,528 +300,4 @@ export function deleteDProdOrder(params) {
     data: params
   })
 }
-// 团队管理-获取列表
-export function getTteamList(params, query) {
-  const url = '/tteam/tteamList/' + params.pageNum + '/' + params.pageSize
-  return request({
-    url: url,
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: query
-  })
-}
 
-// 团队管理-新增
-export function addTteam(params) {
-  return request({
-    url: '/tteam/add',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 团队管理-删除
-export function deleteTteam(params) {
-  return request({
-    url: '/tteam/delete',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 外包项目管理-获取列表
-export function getTprojectList(params, query) {
-  const url = '/tproject/tprojectList/' + params.pageNum + '/' + params.pageSize
-  return request({
-    url: url,
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: query
-  })
-}
-
-// 外包项目管理-新增
-export function addTproject(params) {
-  return request({
-    url: '/tproject/add',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 外包项目管理-删除
-export function deleteTproject(params) {
-  return request({
-    url: '/tproject/delete',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-/*// 期初数据导入-获取列表
-export function getTteamList(params, query) {
-  const url = '/tteam/tteamList/' + params.pageNum + '/' + params.pageSize
-  return request({
-    url: url,
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: query
-  })
-}
-
-// 期初数据导入-新增
-export function addTteam(params) {
-  return request({
-    url: '/tteam/add',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 期初数据导入-删除
-export function deleteTteam(params) {
-  return request({
-    url: '/tteam/delete',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}*/
-// 外包奖金方案-获取列表
-export function getTbonusList(params, query) {
-  const url = '/tbonus/tbonusList/' + params.pageNum + '/' + params.pageSize
-  return request({
-    url: url,
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: query
-  })
-}
-
-// 外包奖金方案-新增
-export function addTbonus(params) {
-  return request({
-    url: '/tbonus/add',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 外包奖金方案-删除
-export function deleteTbonus(params) {
-  return request({
-    url: '/tbonus/delete',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 招聘奖金管理-获取列表
-export function getRecruitmentBonusList(params, query) {
-  const url = '/recruitmentBonus/recruitmentBonusList/' + params.pageNum + '/' + params.pageSize
-  return request({
-    url: url,
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: query
-  })
-}
-
-// 招聘奖金管理-新增
-export function addRecruitmentBonus(params) {
-  return request({
-    url: '/recruitmentBonus/add',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}// 招聘奖金管理-计算
-export function countRecruitmentBonus(params) {
-  return request({
-    url: '/recruitmentBonus/count',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 奖金管理-批量计算
-export function BatchCount(params) {
-  return request({
-    url: '/recruitmentBonus/BatchCount',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 招聘奖金管理-删除
-export function deleteRecruitmentBonus(params) {
-  return request({
-    url: '/recruitmentBonus/delete',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-/*// BD奖金管理-获取列表
-export function getTteamList(params, query) {
-  const url = '/tteam/tteamList/' + params.pageNum + '/' + params.pageSize
-  return request({
-    url: url,
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: query
-  })
-}
-
-// BD奖金管理-新增
-export function addTteam(params) {
-  return request({
-    url: '/tteam/add',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// BD奖金管理-删除
-export function deleteTteam(params) {
-  return request({
-    url: '/tteam/delete',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 团队奖金管理-获取列表
-export function getTteamList(params, query) {
-  const url = '/tteam/tteamList/' + params.pageNum + '/' + params.pageSize
-  return request({
-    url: url,
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: query
-  })
-}
-
-// 团队奖金管理-新增
-export function addTteam(params) {
-  return request({
-    url: '/tteam/add',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 团队奖金管理-删除
-export function deleteTteam(params) {
-  return request({
-    url: '/tteam/delete',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}*/
-// 外包奖金管理-获取列表
-export function getTprojectOutsourcingBonusList(params, query) {
-  const url = '/tprojectOutsourcingBonus/tprojectOutsourcingBonusList/' + params.pageNum + '/' + params.pageSize
-  return request({
-    url: url,
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: query
-  })
-}
-
-// 外包奖金管理-新增
-export function addTprojectOutsourcingBonus(params) {
-  return request({
-    url: '/tprojectOutsourcingBonus/add',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 外包奖金管理-删除
-export function deleteTprojectOutsourcingBonus(params) {
-  return request({
-    url: '/tprojectOutsourcingBonus/delete',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}// 项目外包奖金（外包客服明细模块）-获取列表
-export function getToutsourcingCustomerServiceList(params, query) {
-  const url = '/toutsourcingCustomerService/toutsourcingCustomerServiceList/' + params.pageNum + '/' + params.pageSize
-  return request({
-    url: url,
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: query
-  })
-}
-
-// 项目外包奖金（外包客服明细模块）-新增
-export function addToutsourcingCustomerService(params) {
-  return request({
-    url: '/toutsourcingCustomerService/add',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 项目外包奖金（外包客服明细模块）-删除
-export function deleteToutsourcingCustomerService(params) {
-  return request({
-    url: '/toutsourcingCustomerService/deleteMany',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}// 项目外包奖金（外包招聘费用明细模块）-获取列表
-export function getToutsourcingRecruitmentFeeList(params, query) {
-  const url = '/toutsourcingRecruitmentFee/toutsourcingRecruitmentFeeList/' + params.pageNum + '/' + params.pageSize
-  return request({
-    url: url,
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: query
-  })
-}
-
-// 项目外包奖金（外包招聘费用明细模块）-新增
-export function addToutsourcingRecruitmentFee(params) {
-  return request({
-    url: '/toutsourcingRecruitmentFee/add',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 项目外包奖金（外包招聘费用明细模块）-删除
-export function deleteToutsourcingRecruitmentFee(params) {
-  return request({
-    url: '/toutsourcingRecruitmentFee/deleteMany',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}// 项目外包奖金（外包项目费用明细模块）-获取列表
-export function getToutsourceProjectList(params, query) {
-  const url = '/toutsourceProject/toutsourceProjectList/' + params.pageNum + '/' + params.pageSize
-  return request({
-    url: url,
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: query
-  })
-}
-
-// 项目外包奖金（外包项目费用明细模块）-新增
-export function addToutsourceProject(params) {
-  return request({
-    url: '/toutsourceProject/batchInsert',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 项目外包奖金（外包项目费用明细模块）-删除
-export function deleteToutsourceProject(params) {
-  return request({
-    url: '/toutsourceProject/deleteMany',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 支付清单-获取列表
-export function getPaymentList(params, query) {
-  const url = '/paymentList/paymentList/' + params.pageNum + '/' + params.pageSize
-  return request({
-    url: url,
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: query
-  })
-}
-
-// 支付清单-新增
-export function addPaymentList(params) {
-  return request({
-    url: '/paymentList/add',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 支付清单-删除
-export function deletePaymentList(params) {
-  return request({
-    url: '/paymentList/delete',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 招聘奖金费用明细-获取列表
-export function getSelectList(params, query) {
-  const url = '/expenseDetails/select/' + params.pageNum + '/' + params.pageSize
-  return request({
-    url: url,
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: query
-  })
-}
-
-// 招聘奖金费用明细-新增
-export function addExpenseDetails(params) {
-  return request({
-    url: '/expenseDetails/add',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}
-// 招聘奖金费用明细-删除
-export function deleteExpenseDetails(params) {
-  return request({
-    url: '/expenseDetails/delete',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}// 招聘奖金-更新
-export function updateRecruitmentBonus(params) {
-  return request({
-    url: '/recruitmentBonus/update',
-    headers: {
-      'authorization': getToken('urcrx'),
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    data: params
-  })
-}

@@ -42,8 +42,8 @@ module.exports = {
       [process.env.VUE_APP_BASE_API]: {
         //target: `http://gzfzdev.com/`, // 修改后台接口地址
         //target: `http://c52b779e.natappfree.cc/web/`,
-        //target: `http://192.168.31.100:10023/`,
-        target: `http://ct.gzfzdev.com:50073/chengtou`,
+        target: `http://192.168.31.100:10023/`,
+        //target: `http://ct.gzfzdev.com:50073/chengtou`,
         changeOrigin: true, // 必须加上跨域
         ws: false,
         secure: false,
