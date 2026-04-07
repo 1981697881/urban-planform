@@ -16,7 +16,7 @@
 
 <script>import {mapGetters} from 'vuex'
 import List from '@/components/List'
-import { getLaborList, deleteProdOrder } from '@/api/information/index'
+import { getLaborList, deleteLabor } from '@/api/information/index'
 export default {
   components: {
     List
@@ -180,6 +180,14 @@ export default {
         })
       )
     },
+    Delivery(val) {
+      deleteLabor(val).then(res => {
+        if(res.flag) {
+          this.$store.dispatch('list/setClickData', '');
+          this.$emit('uploadList')
+        }
+      });
+    },
     //监听每页显示几条
     handleSize(val) {
       this.list.size = val
@@ -220,6 +228,5 @@ export default {
 <style lang="scss" scoped>
   .list-main {
     height: calc(100vh - 250px);
-    overflow: auto; // 表格列过多时滚动
   }
 </style>

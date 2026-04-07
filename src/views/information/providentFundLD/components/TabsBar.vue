@@ -36,7 +36,7 @@
           <el-button :size="'mini'" type="primary" icon="el-icon-edit" @click="handlerAlter">修改</el-button>-->
           <el-button :size="'mini'" type="primary" icon="el-icon-delete" @click="del">删除</el-button>
           <el-upload
-            name="issurance"
+            name="pfDispatch"
             :on-success="uploadSuccess"
             :on-error="uploadError"
             accept="xlsx,xls"
@@ -53,8 +53,8 @@
             <el-button size="mini" type="primary" icon="el-icon-upload2">导入</el-button>
             <el-button style="margin-left: 10px;display: none" size="mini" type="success" @click="submitUpload">上传到服务器
             </el-button>
-            <el-button :size="'mini'" type="primary" icon="el-icon-download" @click="exportData">导出</el-button>
           </el-upload>
+          <el-button :size="'mini'" type="primary" icon="el-icon-download" @click="exportData">导出</el-button>
           <el-button :size="'mini'" type="primary" icon="el-icon-refresh" @click="upload">刷新</el-button>
         </el-button-group>
       </el-row>

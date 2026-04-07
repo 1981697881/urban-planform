@@ -18,7 +18,7 @@
 <script>
 import { mapGetters } from "vuex";
 import List from "@/components/List";
-import { processSRReport } from '@/api/reportForm/index'
+import { getDispatchLaborRepot } from '@/api/reportForm/index'
 export default {
   components: {
     List
@@ -90,7 +90,7 @@ export default {
         const list = this.list.records
         const data = this.formatJson(filterVal, list);
         // 这里还是使用export_json_to_excel方法比较好，方便操作数据
-        excel.export_json_to_excel(tHeader,data,'工序流转进度')
+        excel.export_json_to_excel(tHeader,data,'劳务派遣报表')
       })
     },
     formatJson(filter, jsonDate){
@@ -136,7 +136,7 @@ export default {
       pageSize: this.list.size || 50
     }) {
       this.loading = false;
-      processSRReport(data, val).then(res => {
+      getDispatchLaborRepot(data, val).then(res => {
         this.loading = false
         this.list = res.data
       });

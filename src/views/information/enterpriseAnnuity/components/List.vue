@@ -16,7 +16,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { getCpIssuranceList, deleteCp } from '@/api/information/index'
+import { getCpList, deleteCp } from '@/api/information/index'
 import List from '@/components/List'
 
 export default {
@@ -36,7 +36,7 @@ export default {
       columns: [
         // 基础信息列
         { text: '姓名', name: 'empName' },
-        { text: '月缴存基数', name: 'monthBase', width: '120px' },
+        { text: '月缴存基数', name: 'monthBase'},
 
         // 单位缴存（一级跨列）
         {
@@ -44,17 +44,17 @@ export default {
           children: [
             {
               text: '单位缴存(6%)',
-              name: 'unitAmount', width: '80px'
+              name: 'unitAmount'
             },
             {
               text: '单位缴存企业公共账户（2%）',
               children: [
-                { text: '明细', name: 'unitAccountAmount', width: '120px' }
+                { text: '明细', name: 'unitAccountAmount' }
               ]
             },
             {
               text: '个人缴存(4%)',
-              name: 'perosonalAmount', width: '120px'
+              name: 'perosonalAmount'
             },
           ]
         },
@@ -126,7 +126,7 @@ export default {
       pageSize: this.list.size || 50
     }) {
       this.loading = false
-      getCpIssuranceList(data, val).then(res => {
+      getCpList(data, val).then(res => {
         this.loading = false
         this.list = res.data
       })

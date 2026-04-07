@@ -16,6 +16,19 @@ export function getLaborList(params, query) {
     data: query
   })
 }
+// 工资表-删除
+export function deleteLabor(params) {
+  return request({
+    url: '/labor/delete',
+    headers: {
+      'authorization': getToken('urcrx'),
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    data: params
+  })
+}
+
 // 社保费-获取列表
 export function getIssuranceList(params, query) {
   const url = '/issurance/issuranceList/' + params.pageNum + '/' + params.pageSize
@@ -117,8 +130,8 @@ export function deletePFDispatch(params) {
   })
 }
 // 企业年金-获取列表
-export function getCpIssuranceList(params, query) {
-  const url = '/cp/issuranceList/' + params.pageNum + '/' + params.pageSize
+export function getCpList(params, query) {
+  const url = '/cp/cpList/' + params.pageNum + '/' + params.pageSize
   return request({
     url: url,
     headers: {

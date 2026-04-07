@@ -18,7 +18,7 @@
 <script>
 import { mapGetters } from "vuex";
 import List from "@/components/List";
-import { processSRReport } from '@/api/reportForm/index'
+import { getOutsourceLaborDetailRepot } from '@/api/reportForm/index'
 export default {
   components: {
     List
@@ -31,26 +31,113 @@ export default {
       loading: false,
       list: {},
       columns: [
-        { text: "订单日期", name: "orderDate" },
-        { text: "订单号", name: "poNo" },
-        { text: "子订单号", name: "poSubNo" },
-        { text: "产品编码", name: "itemNumber" },
-        { text: "产品名称", name: "itemName" },
-        { text: "产品规格", name: "itemSpec"},
-        { text: "产品数量", name: "prodQty"},
-        { text: "工序序号", name: "processSeq"},
-        { text: "交工序名称", name: "sendProcessName"},
-        { text: "收工序名称", name: "recProcessName"},
-        { text: "工序收数量", name: "receiveQty"},
-        { text: "接收日期", name: "receiveDate"},
-        { text: "工序交数量", name: "sendQty"},
-        { text: "交付日期", name: "sendDate"},
-        { text: "状态", name: "status"},
-        { text: "开工日期", name: "startDate"},
-        { text: "预警天数", name: "createDateTime"},
-        { text: "交工图片", name: "photoFiles", default: 'images'},
-        { text: "接收图片", name: "recPhotoFiles", default: 'images'},
-        { text: "预警状态", name: "warmStatus"},
+        { text: '项目名称', name: 'projectName', width: '150px' },
+        { text: '采购服务', name: 'serviceName', width: '120px' },
+        { text: '供应商', name: 'supplierName', width: '120px' },
+
+        // 1月
+        {
+          text: '1月',
+          children: [
+            { text: '人效', name: 'm1Employs', width: '80px' },
+            { text: '支付金额', name: 'm1Amount', width: '100px' }
+          ]
+        },
+        // 2月
+        {
+          text: '2月',
+          children: [
+            { text: '人效', name: 'm2Employs', width: '80px' },
+            { text: '支付金额', name: 'm2Amount', width: '100px' }
+          ]
+        },
+        // 3月
+        {
+          text: '3月',
+          children: [
+            { text: '人效', name: 'm3Employs', width: '80px' },
+            { text: '支付金额', name: 'm3Amount', width: '100px' }
+          ]
+        },
+        // 4月
+        {
+          text: '4月',
+          children: [
+            { text: '人效', name: 'm4Employs', width: '80px' },
+            { text: '支付金额', name: 'm4Amount', width: '100px' }
+          ]
+        },
+        // 5月
+        {
+          text: '5月',
+          children: [
+            { text: '人效', name: 'm5Employs', width: '80px' },
+            { text: '支付金额', name: 'm5Amount', width: '100px' }
+          ]
+        },
+        // 6月
+        {
+          text: '6月',
+          children: [
+            { text: '人效', name: 'm6Employs', width: '80px' },
+            { text: '支付金额', name: 'm6Amount', width: '100px' }
+          ]
+        },
+        // 7月
+        {
+          text: '7月',
+          children: [
+            { text: '人效', name: 'm7Employs', width: '80px' },
+            { text: '支付金额', name: 'm7Amount', width: '100px' }
+          ]
+        },
+        // 8月
+        {
+          text: '8月',
+          children: [
+            { text: '人效', name: 'm8Employs', width: '80px' },
+            { text: '支付金额', name: 'm8Amount', width: '100px' }
+          ]
+        },
+        // 9月
+        {
+          text: '9月',
+          children: [
+            { text: '人效', name: 'm9Employs', width: '80px' },
+            { text: '支付金额', name: 'm9Amount', width: '100px' }
+          ]
+        },
+        // 10月
+        {
+          text: '10月',
+          children: [
+            { text: '人效', name: 'm10Employs', width: '80px' },
+            { text: '支付金额', name: 'm10Amount', width: '100px' }
+          ]
+        },
+        // 11月
+        {
+          text: '11月',
+          children: [
+            { text: '人效', name: 'm11Employs', width: '80px' },
+            { text: '支付金额', name: 'm11Amount', width: '100px' }
+          ]
+        },
+        // 12月
+        {
+          text: '12月',
+          children: [
+            { text: '人效', name: 'm12Employs', width: '80px' },
+            { text: '支付金额', name: 'm12Amount', width: '100px' }
+          ]
+        },
+
+        // 合同合计相关
+        { text: '合同约定人数', name: 'contract1Employs', width: '120px' },
+        { text: '合同年总价', name: 'ontractAmount', width: '120px' },  // 注意 VO 中字段名为 ontractAmount（可能是笔误）
+        { text: '平均人数', name: 'totalAverageEmploys', width: '100px' },
+        { text: '合计实付金额', name: 'totalAmount', width: '120px' },
+        { text: '备注', name: 'note', width: '150px' }
       ]
     };
   },
@@ -69,7 +156,7 @@ export default {
         const list = this.list.records
         const data = this.formatJson(filterVal, list);
         // 这里还是使用export_json_to_excel方法比较好，方便操作数据
-        excel.export_json_to_excel(tHeader,data,'工序流转进度')
+        excel.export_json_to_excel(tHeader,data,'外包服务明细报表')
       })
     },
     formatJson(filter, jsonDate){
@@ -115,7 +202,7 @@ export default {
       pageSize: this.list.size || 50
     }) {
       this.loading = false;
-      processSRReport(data, val).then(res => {
+      getOutsourceLaborDetailRepot(data, val).then(res => {
         this.loading = false
         this.list = res.data
       });

@@ -18,7 +18,7 @@
 <script>
 import { mapGetters } from "vuex";
 import List from "@/components/List";
-import { processSRReport } from '@/api/reportForm/index'
+import { getProjectLaborRepot } from '@/api/reportForm/index'
 export default {
   components: {
     List
@@ -33,44 +33,45 @@ export default {
       columns: [
         { text: '姓名', name: 'empName', width: '100px' },
         { text: '用工类型', name: 'empType', width: '100px' },
-        { text: '部门/项目名称', name: 'deptProject', width: '150px' },
-        { text: '岗位', name: 'position', width: '120px' },
-        { text: '包干工资', name: 'contractSalary', width: '100px' },
-        { text: '实际在岗月数', name: 'actualMonths', width: '110px' },
+        { text: '部门/项目名称', name: 'dept', width: '150px' },
+        { text: '岗位', name: 'duty', width: '120px' },
+        { text: '包干工资', name: 'lumpLabor', width: '100px' },
+        { text: '实际在岗月数', name: 'onRealDutyMonths', width: '110px' },
         { text: '人次', name: 'personTimes', width: '70px' },
-        { text: '基本工资', name: 'baseSalary', width: '100px' },
-        { text: '岗位工资', name: 'positionSalary', width: '100px' },
-        { text: '绩效工资', name: 'meritPay', width: '100px' },
-        { text: '工龄工资', name: 'seniorityPay', width: '100px' },
-        { text: '岗位补贴', name: 'positionAllowance', width: '100px' },
+        { text: '基本工资', name: 'baseLabor', width: '100px' },
+        { text: '岗位工资', name: 'dutyLabor', width: '100px' },
+        { text: '绩效工资', name: 'kpiLabor', width: '100px' },
+        { text: '工龄工资', name: 'yearsLabor', width: '100px' },
+        { text: '岗位补贴', name: 'subsidyLabor', width: '100px' },
         { text: '年终奖', name: 'yearEndBonus', width: '100px' },
-        { text: '补发上月工资差额', name: 'retroactivePay', width: '130px' },
-        { text: '年度考核绩效奖', name: 'annualPerformanceBonus', width: '130px' },
-        { text: '4小时固定加班工资', name: 'fixedOvertimePay', width: '140px' },
-        { text: '夜餐费', name: 'nightMealAllowance', width: '90px' },
+        { text: '补发上月工资差额', name: 'rePlayLabor', width: '130px' },
+        { text: '年度考核绩效奖', name: 'annualPerformanceBonus', width: '130px' }, // VO中无直接对应，保留
+        { text: '4小时固定加班工资', name: 'hourotLabor', width: '140px' },
+        { text: '夜餐费', name: 'midnightmealFee', width: '90px' },
         { text: '优秀员工奖', name: 'excellenceAward', width: '100px' },
-        { text: '元旦值班费', name: 'newYearDuty', width: '100px' },
-        { text: '春节值班费', name: 'springFestivalDuty', width: '100px' },
-        { text: '清明值班费', name: 'qingmingDuty', width: '100px' },
-        { text: '五一值班费', name: 'laborDayDuty', width: '100px' },
-        { text: '端午值班费', name: 'dragonBoatDuty', width: '100px' },
-        { text: '国庆值班费', name: 'nationalDayDuty', width: '100px' },
-        { text: '中秋值班费', name: 'midAutumnDuty', width: '100px' },
-        { text: '休息日加班费', name: 'weekendOvertime', width: '110px' },
-        { text: '其他加班费', name: 'otherOvertime', width: '100px' },
-        { text: '扣回多发加班费/值班费', name: 'deductOverpaid', width: '150px' },
-        { text: '奖考核奖励/扣款金', name: 'rewardDeduction', width: '140px' },
-        { text: '请假扣款', name: 'leaveDeduction', width: '100px' },
-        { text: '年度工资总额', name: 'annualSalaryTotal', width: '120px' },
-        { text: '全年单位社保', name: 'annualUnitSocialSecurity', width: '120px' },
-        { text: '全年单位公积金', name: 'annualUnitProvidentFund', width: '130px' },
-        { text: '全年单位工会费（2%）', name: 'annualUnionFee', width: '140px' },
-        { text: '在岗月数', name: 'employedMonths', width: '100px' },
-        { text: '年单位缴纳合计', name: 'annualUnitTotal', width: '130px' },
-        { text: '年残保金', name: 'annualDisabilityFund', width: '100px' },
-        { text: '年管理费', name: 'annualManagementFee', width: '100px' },
-        { text: '年总用工成本', name: 'annualLaborCost', width: '120px' },
-        { text: '备注', name: 'remark', width: '150px' }
+        { text: '元旦值班费', name: 'newYearOTFee', width: '100px' },
+        { text: '春节值班费', name: 'springfestivalOTFee', width: '100px' },
+        { text: '清明值班费', name: 'qingmingdayOTFee', width: '100px' },
+        { text: '五一值班费', name: 'maydayOTFee', width: '100px' },
+        { text: '端午值班费', name: 'duanwuOTFee', width: '100px' },
+        { text: '国庆值班费', name: 'nationaldayOTFee', width: '100px' },
+        { text: '中秋值班费', name: 'midautumnOTFee', width: '100px' },
+        { text: '休息日加班费', name: 'restdayOTFee', width: '110px' },
+        { text: '其他加班费', name: 'otherOTFee', width: '100px' },
+        { text: '扣回多发加班费/值班费', name: 'deductOTFee', width: '150px' },
+        { text: '奖考核奖励/扣款金', name: 'kpiRewardFee', width: '140px' },
+        { text: '请假扣款', name: 'leaveDedut', width: '100px' },
+        { text: '年度工资总额', name: 'yearLaborTotal', width: '120px' },
+        { text: '全年单位社保', name: 'yearUnitInsurance', width: '120px' },
+        { text: '全年单位公积金', name: 'yearUnitHousingfund', width: '130px' },
+        { text: '全年单位工会费（2%）', name: 'yearUnitUnionDues', width: '140px' },
+        { text: '在岗月数', name: 'onDutyMonths', width: '100px' },
+        { text: '年单位缴纳合计', name: 'yearUnitTotal', width: '130px' },
+        { text: '年残保金', name: 'yearInjuryAmount', width: '100px' },
+        { text: '人才市场年管理费', name: 'yearManagerAmount', width: '140px' },
+        { text: '年总用工成本', name: 'yearLaborAmount', width: '120px' },
+        { text: '备注', name: 'note', width: '150px' },
+        { text: '全年加班费', name: 'annualOvertimePay', width: '120px' } // VO中无对应，保留
       ]
     };
   },
@@ -89,7 +90,7 @@ export default {
         const list = this.list.records
         const data = this.formatJson(filterVal, list);
         // 这里还是使用export_json_to_excel方法比较好，方便操作数据
-        excel.export_json_to_excel(tHeader,data,'工序流转进度')
+        excel.export_json_to_excel(tHeader,data,'项目用工报表')
       })
     },
     formatJson(filter, jsonDate){
@@ -135,7 +136,7 @@ export default {
       pageSize: this.list.size || 50
     }) {
       this.loading = false;
-      processSRReport(data, val).then(res => {
+      getProjectLaborRepot(data, val).then(res => {
         this.loading = false
         this.list = res.data
       });
