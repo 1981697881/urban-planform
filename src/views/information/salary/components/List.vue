@@ -156,6 +156,10 @@ export default {
     }
   },
   methods: {
+    // 监听单击某一行
+    rowClick(obj) {
+      this.$store.dispatch("list/setClickData", obj.row);
+    },
     ExportData() {
       import('@/vendor/Export2Excel').then(excel => {
         // 表格的表头列表
@@ -197,10 +201,6 @@ export default {
     handleCurrent(val) {
       this.list.current = val
       this.$emit('uploadList')
-    },
-    // 行点击
-    rowClick(obj) {
-      console.log('点击行数据：', obj.row)
     },
     uploadPr(val) {
       this.fetchData(val, {

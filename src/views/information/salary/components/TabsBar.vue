@@ -169,6 +169,7 @@ export default {
       this.$emit('uploadList')
     },
     del() {
+      console.log(this.clickData)
       if (this.clickData.id) {
         this.$confirm('是否删除，删除后将无法恢复?', '提示', {
           confirmButtonText: '确定',

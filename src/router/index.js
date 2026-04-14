@@ -134,6 +134,13 @@ export const StaticRouterMap = [{
       meta: {
         title: '企业年金'
       }
+    },{
+      path: 'unionDues',
+      component: () => import('@/views/information/unionDues/index'),
+      name: 'UnionDues',
+      meta: {
+        title: '工会费明细'
+      }
     }
   ]
 }, {
