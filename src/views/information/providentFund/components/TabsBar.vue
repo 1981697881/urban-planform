@@ -161,13 +161,19 @@ export default {
       this.$emit('uploadList')
     },
     del() {
-      if (this.clickData.id) {
+      if (this.selections.length>0) {
         this.$confirm('是否删除，删除后将无法恢复?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          this.$emit('del', {id: this.clickData.id})
+          var delList = []
+          this.selections.forEach((item)=>{
+            delList.push({
+              id: item.id,
+            })
+          })
+          this.$emit('del', {list: delList})
         }).catch(() => {
           this.$message({
             type: 'info',

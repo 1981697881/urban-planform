@@ -19,7 +19,7 @@ export function getLaborList(params, query) {
 // 工资表-删除
 export function deleteLabor(params) {
   return request({
-    url: '/labor/delete',
+    url: '/labor/batchdelete',
     headers: {
       'authorization': getToken('urcrx'),
       'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ export function getIssuranceList(params, query) {
 // 社保费-删除
 export function deleteIssurance(params) {
   return request({
-    url: '/issurance/delete',
+    url: '/issurance/batchdelete',
     headers: {
       'authorization': getToken('urcrx'),
       'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ export function getIssuranceDispatchList(params, query) {
 // 社保费-劳务派遣-删除
 export function deleteDispatch(params) {
   return request({
-    url: '/issurance/deleteDispatch',
+    url: '/issurance/batchdeleteDispatch',
     headers: {
       'authorization': getToken('urcrx'),
       'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ export function getPfList(params, query) {
 // 公职金-职工-删除
 export function deletePF(params) {
   return request({
-    url: '/pf/delete',
+    url: '/pf/batchdelete',
     headers: {
       'authorization': getToken('urcrx'),
       'Content-Type': 'application/json'
@@ -120,7 +120,7 @@ export function getPfDispatchList(params, query) {
 // 公职金-劳务派遣-删除
 export function deletePFDispatch(params) {
   return request({
-    url: '/pf/deletePFDispatch',
+    url: '/pf/batchdeletePFDispatch',
     headers: {
       'authorization': getToken('urcrx'),
       'Content-Type': 'application/json'
@@ -145,7 +145,7 @@ export function getCpList(params, query) {
 // 企业年金-删除
 export function deleteCp(params) {
   return request({
-    url: '/cp/delete',
+    url: '/cp/batchdelete',
     headers: {
       'authorization': getToken('urcrx'),
       'Content-Type': 'application/json'
@@ -170,7 +170,7 @@ export function getUnionDuesList(params, query) {
 // 工会费明细-删除
 export function deleteUD(params) {
   return request({
-    url: '/ud/delete',
+    url: '/ud/batchdelete',
     headers: {
       'authorization': getToken('urcrx'),
       'Content-Type': 'application/json'

@@ -23,7 +23,7 @@
       <!-- 多选列 -->
       <el-table-column v-if="type" type="selection" align="center" fixed />
       <!-- 序号列 -->
-      <el-table-column v-if="index" type="index" label="序号" align="center" sortable />
+      <el-table-column v-if="index" type="index" label="序号" align="center" sortable fixed/>
       <!-- 自定义前置列 -->
       <slot name="title"></slot>
 

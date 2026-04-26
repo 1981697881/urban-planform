@@ -7,6 +7,7 @@
       :list="list"
       ref="list"
       index
+      type
       @handle-size="handleSize"
       @handle-current="handleCurrent"
       @row-click="rowClick"
@@ -31,8 +32,8 @@ export default {
       // 核心：配置跨列表头
       columns: [
         // 基础信息列（无跨列）
-        {text: '工资所属年度', name: 'laborYear', width: '120px'},
-        {text: '工资期间', name: 'laborPeriod', width: '120px'},
+        {text: '工资所属年度', name: 'laborYear', width: '120px', fixed: 'left' },
+        {text: '工资期间', name: 'laborPeriod', width: '120px', fixed: 'left' },
         {text: '姓名', name: 'empName', width: '100px'},
         {text: '用工类型', name: 'empType', width: '100px'},
         {text: '部门', name: 'dept', width: '120px'},
@@ -185,7 +186,7 @@ export default {
       )
     },
     Delivery(val) {
-      deleteLabor(val).then(res => {
+      deleteLabor(val.list).then(res => {
         if(res.flag) {
           this.$store.dispatch('list/setClickData', '');
           this.$emit('uploadList')

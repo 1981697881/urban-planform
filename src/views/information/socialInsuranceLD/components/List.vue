@@ -7,6 +7,7 @@
       :list="list"
       ref="list"
       index
+      type
       @handle-size="handleSize"
       @handle-current="handleCurrent"
       @row-click="rowClick"
@@ -135,7 +136,7 @@ export default {
       this.$emit('uploadList')
     },
     Delivery(val) {
-      deleteDispatch(val).then(res => {
+      deleteDispatch(val.list).then(res => {
         if(res.flag) {
           this.$store.dispatch('list/setClickData', '');
           this.$emit('uploadList')

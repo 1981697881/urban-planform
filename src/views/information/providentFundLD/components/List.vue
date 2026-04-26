@@ -32,9 +32,9 @@ export default {
         { text: '姓名', name: 'empName' },
         { text: '基数', name: 'monthBase' },
         { text: '比例(单位缴)', name: 'unitRate', width: '120px' },
-        { text: '金额(单位缴)', name: 'unmiteAmount', width: '120px' },
+        { text: '金额(单位缴)', name: 'uniteAmount', width: '120px' },
         { text: '比例(个人缴)', name: 'personalRate', width: '120px' },
-        { text: '金额(个人缴)', name: 'perosonalAmount', width: '120px' },
+        { text: '金额(个人缴)', name: 'personalAmount', width: '120px' },
         { text: '合计', name: 'allAmount' },
         { text: '备注', name: 'note', width: '150px' }
       ]
@@ -76,7 +76,7 @@ export default {
       this.$emit('uploadList')
     },
     Delivery(val) {
-      deletePFDispatch(val).then(res => {
+      deletePFDispatch(val.list).then(res => {
         if(res.flag) {
           this.$store.dispatch('list/setClickData', '');
           this.$emit('uploadList')

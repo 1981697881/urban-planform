@@ -29,13 +29,13 @@ export default {
       loading: false,
       list: {},
       columns: [
-        { text: '期间', name: 'period' },
+        { text: '期间', name: 'period', fixed: 'left' },
         { text: '姓名', name: 'empName' },
-        { text: '月缴存基数', name: 'personalBase', width: '120px' },      // 或 unitBase，此处取 personalBase
-        { text: '单位缴存比例', name: 'unitRatio', width: '120px' },       // 无对应后端字段，保留
-        { text: '个人缴存比例', name: 'personalRatio', width: '120px' },    // 无对应后端字段，保留
+        { text: '月缴存基数', name: 'monthAmount', width: '120px' },      // 或 unitBase，此处取 personalBase
+        { text: '单位缴存比例', name: 'unitRate', width: '120px' },       // 无对应后端字段，保留
+        { text: '个人缴存比例', name: 'personalRate', width: '120px' },    // 无对应后端字段，保留
         { text: '单位缴金额', name: 'uniteAmount', width: '120px' },       // 原 unitAmount → uniteAmount
-        { text: '个人缴金额', name: 'perosonalAmount', width: '120px' },    // 原 personalAmount → perosonalAmount
+        { text: '个人缴金额', name: 'personalAmount', width: '120px' },    // 原 personalAmount → personalAmount
         { text: '合计', name: 'allAmount' },               // 原 total → allAmount
         { text: '备注', name: 'note', width: '150px' }                     // 原 remark → note
       ]
@@ -77,7 +77,7 @@ export default {
       this.$emit('uploadList')
     },
     Delivery(val) {
-      deletePF(val).then(res => {
+      deletePF(val.list).then(res => {
         if(res.flag) {
           this.$store.dispatch('list/setClickData', '');
           this.$emit('uploadList')

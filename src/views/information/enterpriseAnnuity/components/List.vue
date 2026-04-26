@@ -7,6 +7,7 @@
       :list="list"
       ref="list"
       index
+      type
       @handle-size="handleSize"
       @handle-current="handleCurrent"
       @row-click="rowClick"
@@ -35,6 +36,8 @@ export default {
       type: null,
       columns: [
         // 基础信息列
+        { text: '所属期', name: 'year', fixed: 'left' },
+        { text: '工资期间', name: 'period', fixed: 'left' },
         { text: '姓名', name: 'empName' },
         { text: '月缴存基数', name: 'monthBase'},
 
@@ -54,7 +57,7 @@ export default {
             },
             {
               text: '个人缴存(4%)',
-              name: 'perosonalAmount'
+              name: 'personalAmount'
             },
           ]
         },
@@ -99,7 +102,7 @@ export default {
       this.$emit('uploadList')
     },
     Delivery(val) {
-      deleteCp(val).then(res => {
+      deleteCp(val.list).then(res => {
         if(res.flag) {
           this.$store.dispatch('list/setClickData', '');
           this.$emit('uploadList')

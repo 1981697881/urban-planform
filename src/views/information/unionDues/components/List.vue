@@ -7,6 +7,7 @@
       :list="list"
       ref="list"
       index
+      type
       @handle-size="handleSize"
       @handle-current="handleCurrent"
       @row-click="rowClick"
@@ -33,14 +34,14 @@ export default {
       fid: null,
       type: null,
       columns: [
-        { text: '姓名', name: 'empName', width: '100px' },
+        { text: '姓名', name: 'empName' },
         { text: '月固定工资', name: 'monthBase', width: '120px' },
         { text: '单位部分缴费基数（月工资）', name: 'unitBase', width: '180px' },
         { text: '个人部分缴费基数（月工资）', name: 'personalBase', width: '180px' },
         { text: '单位应缴（1*2%）', name: 'unmiteAmount', width: '140px' },
-        { text: '个人应缴（2*0.5%）', name: 'perosonalAmount', width: '140px' },
-        { text: '月度总额', name: 'allAmount', width: '100px' },
-        { text: '备注', name: 'note', width: '150px' }
+        { text: '个人应缴（2*0.5%）', name: 'personalAmount', width: '140px' },
+        { text: '月度总额', name: 'allAmount'},
+        { text: '备注', name: 'note'}
       ]
     }
   },
@@ -80,7 +81,7 @@ export default {
       this.$emit('uploadList')
     },
     Delivery(val) {
-      deleteUD(val).then(res => {
+      deleteUD(val.list).then(res => {
         if(res.flag) {
           this.$store.dispatch('list/setClickData', '');
           this.$emit('uploadList')
