@@ -7,7 +7,7 @@
             <img src="@/assets/logo/logo.png" alt="logo">
           </div>
           <div class="brand-title">
-            <strong>城市服务平台</strong>
+            <strong>服务平台</strong>
             <span>URBAN PLANFORM</span>
           </div>
         </div>
