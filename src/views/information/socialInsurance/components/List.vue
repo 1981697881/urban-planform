@@ -99,7 +99,8 @@ export default {
             { text: '应缴金额', name: 'injuryAmount', width: '100px' }
           ]
         },
-
+        { text: '特定工伤保险缴费基数', name: 'spcecInjuryBase', width: '180px' },
+        { text: '特定工伤保险应缴金额', name: 'specInjuryAmount', width: '180px' },
         // 合计列
         { text: '个人部分合计', name: 'personAmount', width: '120px' },
         { text: '单位部分合计', name: 'unitAmount', width: '120px' },

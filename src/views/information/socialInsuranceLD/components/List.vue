@@ -95,6 +95,9 @@ export default {
             { text: '个人合计', name: 'personAmount', width: '100px' }
           ]
         },
+        { text: '特定工伤险基数', name: 'spcecInjuryBase', width: '140px' },
+        { text: '特定工伤险金额', name: 'specInjuryAmount', width: '140px' },
+        { text: '补清差额', name: 'reApplyAmount', width: '120px' },
         { text: '总合计', name: 'allAmount', width: '100px' },
         { text: '备注', name: 'remark', width: '150px' }
       ]
